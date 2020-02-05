@@ -1,22 +1,69 @@
 {
-	"START": {
-		"name": "",
-		"desc": "",
-		"exits": [
-			{
-				"exit": "EXIT1",
-				"target": "LOCATION2"
+	"BED": {
+		"name": "The Bedchambers",
+		"desc": "You are in the Bedchambers of the Tower. Your mentor lays sick in the bed on his side of the room, awaiting your return with the serum.",
+		"exits": [{
+				"exit": "DOOR",
+				"target": "LAND1"
 			}
 		]
 	}
-	,"LOCATION2": {
-		"name": "",
-		"desc": "",
-		"exits": [
-			{
-				"exit": "EXIT1",
-				"target": "START"
+	,"LAND1": {
+		"name": "Landing 1",
+		"desc": "You are in the first landing of the tower, just outside the bedchambers.",
+		"exits": [{
+				"exit": "DOOR",
+				"target": "BED"
+			},{
+				"exit": "UPSTAIRS",
+				"target": "LAND2"
+			},{
+				"exit":"DOWNSTAIRS",
+				"target": "BASE1"
 			}
 		]
+	}
+	,"BASE1": {
+		"name": "Basement 1",
+		"desc": "You are in the first level of the basement of the Tower.",
+		"exits": [{
+				"exit": "DOOR",
+				"target": "CELLAR"
+			},{
+				"exit": "DOWNSTAIRS",
+				"target": "BASE2"
+			}
+		]
+	}
+	,"BASE2": {
+		"name": "Basement 2",
+		"desc": "You are in the second level of the basement of the Tower.",
+		"exits": [{
+				"exit": "GRATE",
+				"target": "SEW"
+			},{
+				"exit": "UPSTAIRS",
+				"target": "BASE1"
+			}
+		]
+	}
+	,"CELLAR": {
+		"name": "Cellar",
+		"desc":	"You are in the Cellar, in the basement.",
+		"exits": [{
+				"exit": "DOOR",
+				"target": "BASE1"			
+			}],
+			"items": [{
+				"item":"Wine Bottle",
+				"desc":"An old bottle of wine with a fancy seal. You're not sure how old it is, nor how long it's been down here.",
+				"take": "This might be useful. You pick up the Wine Bottle and put it in your pouch."
+			}
+		]
+		
+	}
+	,"LAND2": {
+		"name": "Landing 2",
+		"desc": ""
 	}
 }
