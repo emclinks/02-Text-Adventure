@@ -1,19 +1,47 @@
 {
-	"BED": {
+	"BEDCH": {
 		"name": "The Bedchambers",
 		"desc": "You are in the Bedchambers of the Tower. Your mentor lays sick in the bed on his side of the room, awaiting your return with the serum.",
 		"exits": [{
 				"exit": "DOOR",
 				"target": "LAND1"
+			},{
+				"exit": "BED",
+				"target":"BEDILL"
 			}
 		]
 	}
+	,"BEDILL": {
+		"name": "Wizard's Bed",
+		"desc": "This is your mentor's bed, the Wizard of this Tower. You've studied under his guidance for awhile now, but his sickness has truly crippled him. His coughs wrack his weak body, currently covered in boils and lesions of a magical nature. Hopefully you find that potion soon!",
+		"exits": [{
+				"exit": "BACK",
+				"target": "BEDCH"
+			},{
+				"exit": "HEAL",
+				"target": "BEDHEAL",
+				"condition": "POTION"
+			},{
+				"exit": "HEAL",
+				"target": "BEDHEALFAM",
+				"condition": "POTIONFAV"
+			}
+		]
+	}
+	,"BEDHEAL":{
+		"name": "Wizard's Bed, Healed Mentor!",
+		"desc": "As you give the Wizard the potion, his strength flows back to him, and his crippling ailments fade away. He smiles and thanks you dearly for your hard work that saved his life!",
+			}
+	,"BEDHEALFAM": {
+		"name": "Wizard's Bed, Healed Mentor!",
+		"desc": "As you give the Wizard the potion, his strength flows back to him, and his crippling ailments fade away. He smiles and thanks you dearly for your hard work that saved his life! He then sees the odd metal feather pinned to your cloak, scratching his wispy beard before exclaiming his adonishment at your success in not only saving him, but also befriending the most ornery resident of the Tower. Well Done!"
+			}
 	,"LAND1": {
 		"name": "Landing 1",
 		"desc": "You are in the first landing of the tower, just outside the bedchambers.",
 		"exits": [{
 				"exit": "DOOR",
-				"target": "BED"
+				"target": "BEDCH"
 			},{
 				"exit": "UPSTAIRS",
 				"target": "LAND2"
@@ -64,6 +92,183 @@
 	}
 	,"LAND2": {
 		"name": "Landing 2",
-		"desc": ""
+		"desc": "",
+		"exits": [{
+				"exit": "UPSTAIRS",
+				"target": "INTERSECT"
+			},{
+				"exit": "DOWNSTAIRS",
+				"target": "LAND1"
+			},{
+				"exit": "DOOR",
+				"target": "STUDY"
+			}
+		]
+	}
+	,"STUDY": {
+		"name": "Study",
+		"desc": "You stumble into the study. It's honestly seen better days. Several desks are scattered around the small room, all covered in various scrolls, books, and lots and lots of cobwebs. You spot the chest you remember your mentor mentioning had potions in it on a dusty bookcase across the room.",
+		"exits": [{
+				"exit": "DOOR",
+				"target": "LAND2"
+			},{
+				"exit": "CHEST",
+				"target": "LCHEST"
+			},{
+				"exit": "USEKEY",
+				"target": "OCHEST"
+			}
+		]
+	}
+	,"LCHEST": {
+		"name":"Locked Chest",
+		"desc": "You manover over to the chest on the bookcase and find its definitely the chest you're looking for, and definitely locked.",
+		"exits": [{
+				"exit": "BACK",
+				"target": "STUDY"
+			}
+		]
+	}
+	,"OCHEST": {
+		"name": "Unlocked Potion Chest",
+		"desc": "You use the key and successfully unlock the chest. Its filled to the brim with potions and rare alchemy materials. As tempted as you could be to shift through all of it, the potion you need to heal the wizard is actually convienently laying on top of everything in the chest.",
+		"exits": [{
+				"exit": "BACK",
+				"target": "STUDY",
+				"condition":"KEY"
+			}],
+			"items": [{
+				"name":"POTION",
+				"desc":"This is indeed the Potion you have been looking for to cure your mentor, the Wizard, of his magical sickness. It has a small, unreadable tag attached to the neck of the potion vial, and the liquid potion inside appears to be glowing purple in color.",
+				"take":"You take the Potion out of the Potion Chest, and carefully place it in your pouch. Best quickly head back to the Wizard now with his cure."
+			},{
+				"name":"POTIONFAV",
+				"desc":"This is indeed the Potion you have been looking for to cure your mentor, the Wizard, of his magical sickness. It has a small, unreadable tag attached to the neck of the potion vial, and the liquid potion inside appears to be glowing purple in color.",
+				"take":"You take the Potion out of the Potion Chest, and carefully place it in your pouch. Best quickly head back to the Wizard now with his cure.",
+				"condition":"FAVOR"
+			}
+		]
+	}
+	,"INTERSECT": {
+		"name":"Hallway Intersection",
+		"desc":"A Landing turned hallway intersection. Odd, but not the oddest thing you've seen from the Tower before. Theres a door to the west, and a door to the east. To the north theres a collapsed hallway, and to the south a hallway covered in far, far too many spiders and cobwebs.Or you could move up or downstairs from here.",
+		"exits": [{
+				"exit":"WEST",
+				"target": "ATRIUM"
+			},{
+				"exit":"EAST",
+				"target":"LOCKED"
+			},{
+				"exit":"SOUTH",
+				"target":"SPIDER"
+			}
+		]
+	}
+	,"ATRIUM": {
+		"name":"Atrium",
+		"desc":"",
+		"exits": [{
+				"exit":"DOOR",
+				"target":"INTERSECT"
+			},{
+				"exit":"CAGE",
+				"target":"CAGECOVER"
+			},{
+				"exit":"FLOWER",
+				"target":"FLOWER"
+			}
+		]
+	}
+	,"FLOWER": {
+		"name":"Carnivorous Flower",
+		"desc":"You look closer at the weird looking plant, only to discover it is in fact some form of carnivorous plant as it reveals a mouth lined with needle-teeth. It snaps up a nearby mouse scurrying by it before presumably becoming inert again.",
+		"exits": [{
+			"exit":"BACK",
+			"target":"ATRIUM"
+			}
+		]
+	}
+	,"CAGECOVER": {
+		"name":"Covered, Growling Cage",
+		"desc":"Holy hell this cage is huge. And new. You vaguely remember your mentor saying he brought back something exotic the last time he was out traveling... before he got sick. Whatever's in it recognizes your presense, and makes an odd mix between a chuffing and growling sound. Do you try to UNCOVER the cage?",
+		"exits": [{
+				"exit":"UNCOVER",
+				"target":"CAGEUNCOV"
+			},{
+				"exit":"BACK",
+				"target":"ATRIUM"
+			}
+		]
+	}
+	,"CAGEUNCOV": {
+		"name":"Uncovered Caged Griffin",
+		"desc":"Against better judgement, you uncover the cage. You yelp and leap back as a large taloned hand swipes exactly where you just were. Those talons look sharp enough to have torn you to bits in seconds. With the cage now uncovered, you're face to face with one unhappy metallic navy blue Griffin. It makes the odd chuffing/growling noise you heard earlier once more, pacing in its cage.",
+		"exits": [{
+			"exit":"BACK",
+			"target":"ATRIUM"
+			}],
+			"items": [{
+				"name":"FAVOR",
+				"desc":"You attempt to give the Griffin the Odd Toy. It nearly swipes your arm but takes the toy, and makes a chirping sound that morphs into a purring chirp as it calms down and plays with the toy. The Griffin pushes a Metallic Feather Pin out of the cage.",
+				"take":"You pick up the Metallic Feather Pin, and proceed to pin it to your long cloak. You feel like you now have a bond with this odd, majestic creature now."
+			}]
+	}
+	,"SPIDER": {
+		"name":"Nightmares.",
+		"desc": "You absolute madman. This corridor is completely occupied with spiders! You literally can't see through the cobwebs to the other side its so thick! There's no way you're going in there!",
+		"exits": [{
+				"exit":"BACK",
+				"target": "INTERSECT"
+			}
+		]
+	}
+	,"LOCKED": {
+		"name":"Locked Door",
+		"desc": "Not only is this door locked, it seems barred. From the inside. Perhaps its not the best idea to break into it then.",
+		"exits": [{
+				"exit": "BACK",
+				"target":"INTERSECT"
+			}
+		]
+	}
+	,"LAND3": {
+		"name":"Landing 3",
+		"desc":"The third landing of the Tower. Honestly, theres not much here other than the staircase here. There does appear to be another floor up from here though.",
+		"exits": [{
+				"exit":"UPSTAIRS",
+				"target":"ATTIC"
+			}
+		]
+	}
+	,"ATTIC": {
+		"name":"Tower Attic",
+		"desc":"You remember this place now. Its essentially the attic of the Tower. Definitely used for storage, but not as bad somehow compared to the study and the spider-filled hallway. You poke around the Attic, finding a bin with an odd assortment of toy-like contraptions, and a small box on a shelf. There's also a sizable Skylight to the other side of the room, and the stairwell leading back down.",
+		"exits": [{
+				"exit":"DOWNSTAIRS",
+				"target":"LAND3"
+			},{
+				"exit":"SKYLIGHT",
+				"target":"SKYLIGHT"
+			}],
+				"items": [{
+					"name":"Odd Toy",
+					"desc":"You pick through the box of broken and random bin of toys and tinkering materials, and find an Odd Toy in relatively good shape.",
+					"take":"You find the Odd Toy kind of creepy somehow, but think it might be useful somehow. You pick it up and put it in your pouch."
+				},{
+					"name":"Key",
+					"desc":"You sift through the small box and find a bunch of papers, pens, and a small key.",
+					"take":"This looks like it's the key to the Potion Chest! You take it and put it into your pouch for safe-keeping."
+				}
+			]
+		
+	}
+	,"SKYLIGHT":{
+		"name":"Attic Skylight",
+		"desc":"This appears to be the very tip of the top of the Tower. The Skylight could use a cleaning, but what you can see through it looks like beautiful, rolling grass plains outside the Tower.",
+		"exits": [{
+				"exit":"BACK",
+				"target":"ATTIC"
+			}
+		]
 	}
 }
