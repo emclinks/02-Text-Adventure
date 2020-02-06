@@ -31,10 +31,12 @@
 	,"BEDHEAL":{
 		"name": "Wizard's Bed, Healed Mentor!",
 		"desc": "As you give the Wizard the potion, his strength flows back to him, and his crippling ailments fade away. He smiles and thanks you dearly for your hard work that saved his life!",
+		"exits":[]
 			}
 	,"BEDHEALFAM": {
 		"name": "Wizard's Bed, Healed Mentor!",
-		"desc": "As you give the Wizard the potion, his strength flows back to him, and his crippling ailments fade away. He smiles and thanks you dearly for your hard work that saved his life! He then sees the odd metal feather pinned to your cloak, scratching his wispy beard before exclaiming his adonishment at your success in not only saving him, but also befriending the most ornery resident of the Tower. Well Done!"
+		"desc": "As you give the Wizard the potion, his strength flows back to him, and his crippling ailments fade away. He smiles and thanks you dearly for your hard work that saved his life! He then sees the odd metal feather pinned to your cloak, scratching his wispy beard before exclaiming his adonishment at your success in not only saving him, but also befriending the most ornery resident of the Tower. Well Done!",
+		"exits":[]
 			}
 	,"LAND1": {
 		"name": "Landing 1",
@@ -92,7 +94,7 @@
 	}
 	,"LAND2": {
 		"name": "Landing 2",
-		"desc": "",
+		"desc": "The second landing within the Tower.",
 		"exits": [{
 				"exit": "UPSTAIRS",
 				"target": "INTERSECT"
