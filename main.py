@@ -4,9 +4,9 @@ import sys, os, json
 assert sys.version_info >= (3,7), "This script requires at least Python 3.7"
 
 # The game and item description files (in the same folder as this script)
-game_file = 'zork.json'
+game_file = 'game.json'
 item_file = 'items.json'
-
+inventory = []
 
 # Load the contents of the files into the game and items dictionaries. You can largely ignore this
 # Sorry it's messy, I'm trying to account for any potential craziness with the file location
@@ -20,14 +20,111 @@ def load_files():
         print("There was a problem reading either the game or item file.")
         os._exit(1)
 
+
+def check_inventory(item):
+    for i in inventory:
+        if i == item:
+            return True
+    return False
+
+
+def render(game,items,current):
+    c = game[current]
+    print("\n\nYou are currently in" + c["name"])
+    print(c["desc"])
+
+    #display any items
+    for item in c["items"]:
+        if not check_inventory(item["item"]):
+            print(item["desc"])
+
+    #display item information
+    for i in inventory:
+        if i in items:
+            if current in items[i]("exits"):
+                print(items[i]("exits")[current])
+
+
+    print("\nAvalible exits: ")
+    for e in c["exits"]:
+        print(e["exit"].lower())
+
+
+
+def get_input():
+    response = input("\nWhat do you want to do now?")
+    response = response.upper().strip()
+    return response
+
+def update(game,items,current,response):
+    if response == "INVENTORY":
+        print("\nYou currently have: ")
+        if len(inventory) == 0:
+            print("nothing")
+        else:
+            for i in inventory:
+                print(i.lower())
+        return current
+
+    c = game[current]
+    for e in c["exits"]:
+        if response == e["exit"]:
+            return e["target"]
+    return current
+
+    if response[0:3] == "GET":
+        print("You can't that.")
+    elif response in ("NORTH","WEST","SOUTH","SW","SE","NW","NE"):
+        print("You can't go there.")
+    else:
+        print("I don't understand what you want to do.")
+
+
+for i in c["items"]:
+    if response == "GET" + i["item"] and not check_inventory(i["item"]):
+        print(["TAKE"])
+        inventory.append(i["item"])
+        return current
+
+
+for i in inventory:
+    if i in items:
+        for action in items[i]["actions"]:
+            if response == action + " " + i:
+                print(item[i]["actions"][action])
+                return current
+    
+
+
+
+
+
+
+
+
+
+
 # The main function for the game
 def main():
-    current = 'WHOUS'  # The starting location
-    end_game = ['END']  # Any of the end-game locations
+        current = 'BEDCH'  # The starting location
+        end_game = ['BEDHEAL','BEDHEALFAV']  # Any of the end-game locations
 
-    (game,items) = load_files()
+        (game,items) = load_files()
 
-    # Add your code here
+    While True:
+        render(game,items,current)
+        response = get_input()
+
+        if response == "QUIT":
+            break
+
+        current = update(game,items,current,response)
+
+
+    print("Thanks for playing!!!")
+
+
+
 
 # run the main function
 if __name__ == '__main__':

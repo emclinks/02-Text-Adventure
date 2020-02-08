@@ -85,7 +85,7 @@
 				"target": "BASE1"			
 			}],
 			"items": [{
-				"item":"Wine Bottle",
+				"item":"WINE",
 				"desc":"An old bottle of wine with a fancy seal. You're not sure how old it is, nor how long it's been down here.",
 				"take": "This might be useful. You pick up the Wine Bottle and put it in your pouch."
 			}
@@ -253,7 +253,7 @@
 				"target":"SKYLIGHT"
 			}],
 				"items": [{
-					"name":"Odd Toy",
+					"name":"Odd_Toy",
 					"desc":"You pick through the box of broken and random bin of toys and tinkering materials, and find an Odd Toy in relatively good shape.",
 					"take":"You find the Odd Toy kind of creepy somehow, but think it might be useful somehow. You pick it up and put it in your pouch."
 				},{

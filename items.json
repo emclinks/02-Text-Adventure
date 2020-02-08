@@ -1,16 +1,58 @@
-{
-    "PAMPHLET": {
-       "exits": {},
-       "actions": {
-          "read": "The pamphlet says, Welcome to Zork!"
-       },
-       "points": 1
-    },
-    "SWORD": {
-       "exits": {
-          "CELLA": "The sword glows with a faint blue glow!"
-       },
-       "actions": {},
-       "points": 10
-    }
- }
+{ 
+   "KEY": {
+      "exits": {
+         "LCHEST": "This is the key for the Potion Chest!",
+         "OCHEST": "You use the key to unlock the Potion Chest!"
+      },  
+      "actions": {
+         "LOOK": "This appears to be the key for the Potion Chest! Better head back to the Study and use it!",
+         "USE": "It jingles as you attempt to use it."
+      }
+   },
+   "WINE": {
+      "exits": {
+         "CELLAR":"You retrieved the Wine Bottle from here."
+      },
+      "actions": {
+         "LOOK": "An old bottle of wine with a fancy seal from the Cellar. You're not sure how old it is, nor how long its been in the Tower.",
+         "USE": "You have no idea what kind of wine this is, nor if it would be a good idea to do so now, considering both your dying mentor and the fancy seal indicating a possibly magical bottle of wine."
+         }
+   },
+   "Odd_Toy":{
+      "exits":{
+         "CAGEUNCOV": "Suddenly you recall the Odd Toy in your pouch, and have a feeling maybe this Griffin could want it?"
+      },
+      "actions":{
+         "LOOK": "It doesn't look like any kind of toy you've ever heard of or seen, yet somehow the only word that comes to mind looking at it is 'Toy'.",
+         "USE": "Well, it's definitely a toy of some kind. It kinda flops and springs around in your hand as you try to play with it. Being so unusual, who could possibly care for a toy like this?"
+      }
+   },
+   "POTION":{
+      "exits":{
+         "BEDILL": "You should use the potion to heal the Wizard!"
+      },
+      "actions":{
+         "LOOK":"This is the Potion that will cure the Wizard of the Tower! Bring it to him in the Bedchambers!",
+         "USE": "The potion swirls gently in its bottle as you handle it."
+      }
+   },
+   "FAVOR":{
+      "exits":{
+         "OCHEST": "Your Griffin's Favor jingles as you open the chest.",
+         "BEDHEALFAV": "The Griffin's Favor catches the eye of your mentor."
+      },
+      "actions":{
+         "LOOK":"A dark grey metallic feather pinned to your cloak now. It has a slight blue/green/purple iredescence to it.",
+         "USE": "You pick at the Favor pinned to your cloak. It shines and jingles slightly with your movement."
+      }
+   },
+   "POTIONFAV":{
+      "exits":{
+         "BEDILL": "You should use the potion to heal the Wizard!"
+      },
+      "actions": {
+         "LOOK": "This is the Potion that will cure the Wizard of the Tower! Bring it to him in the Bedchambers!",
+         "USE": "The potion swirls gently in its bottle as you handle it, and the shine from your Griffin's Favor reflects nicely off its glass."
+      }
+   }
+}
