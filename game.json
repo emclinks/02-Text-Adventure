@@ -40,7 +40,7 @@
 			}
 	,"LAND1": {
 		"name": "Landing 1",
-		"desc": "You are in the first landing of the tower, just outside the bedchambers.",
+		"desc": "You are in the first landing of the tower, a rather dull rounded stone room just outside the bedchambers. The door leads back to the Bedchambers, and the staircase goes upstairs or downstairs from here.",
 		"exits": [{
 				"exit": "DOOR",
 				"target": "BEDCH"
@@ -55,7 +55,7 @@
 	}
 	,"BASE1": {
 		"name": "Basement 1",
-		"desc": "You are in the first level of the basement of the Tower.",
+		"desc": "You recognize this as the first level of the Basement in the Tower. Neither you nor your mentor, the Wizard, have much reason at all to go down here often. There's a wooden door to one side of the room, and the staircase seems to go down one more level, or back upstairs to the first landing.",
 		"exits": [{
 				"exit": "DOOR",
 				"target": "CELLAR"
@@ -67,7 +67,7 @@
 	}
 	,"BASE2": {
 		"name": "Basement 2",
-		"desc": "You are in the second level of the basement of the Tower.",
+		"desc": "This is the second level of the basement. It's definitely alot dingier and grosser down here, with water and whatever that is leaking from the walls and occasional dripping from old pipes. Theres a large grate on the far side of the room, or the staircase leading back upstairs.",
 		"exits": [{
 				"exit": "GRATE",
 				"target": "SEW"
@@ -79,7 +79,7 @@
 	}
 	,"CELLAR": {
 		"name": "Cellar",
-		"desc":	"You are in the Cellar, in the basement.",
+		"desc":	"This is the Cellar of the Tower apparently. You honestly don't recall there actually being anything like this down here, not that you come often. A little musty for a cellar, but odds and ends of discarded bottles and unusual wines and liquers line some shelves. Three barrels lay nearby, seemingly empty. You do spot an unusually fancy looking Wine Bottle wedged between the junk on one of the shelves.",
 		"exits": [{
 				"exit": "DOOR",
 				"target": "BASE1"			
@@ -94,7 +94,7 @@
 	}
 	,"LAND2": {
 		"name": "Landing 2",
-		"desc": "The second landing within the Tower.",
+		"desc": "Another rounded stone landing. This one appears to have a tiny window on one wall, but its too high for you to possibly see through it sadly. The old wooden door you think leads to the Study is here, and the staircase seems to lead either back to the first landing or a bigger room upstairs.",
 		"exits": [{
 				"exit": "UPSTAIRS",
 				"target": "INTERSECT"
@@ -168,7 +168,7 @@
 	}
 	,"ATRIUM": {
 		"name":"Atrium",
-		"desc":"",
+		"desc":"Now this has to be one of the weirder rooms in the Tower. It almost seems like a study mixed with a library mixed with whatever the Wizard must think qualifies for a museum of weird magical things. The sheer volume of oddities in this room makes your head swim thinking about poking through it all, so you focus only on two things that catch your eye. A very large, weird looking plant of some sort that has all sorts of flies and mice and other tiny creatures around it. And on the other side of the room, a positively massive cage stands covered from top to bottom in a heavy velvet sheet.",
 		"exits": [{
 				"exit":"DOOR",
 				"target":"INTERSECT"
@@ -204,7 +204,7 @@
 	}
 	,"CAGEUNCOV": {
 		"name":"Uncovered Caged Griffin",
-		"desc":"Against better judgement, you uncover the cage. You yelp and leap back as a large taloned hand swipes exactly where you just were. Those talons look sharp enough to have torn you to bits in seconds. With the cage now uncovered, you're face to face with one unhappy metallic navy blue Griffin. It makes the odd chuffing/growling noise you heard earlier once more, pacing in its cage.",
+		"desc":"Against better judgement, you uncover the growling cage. You yelp and leap back as a large taloned hand swipes exactly where you just were. Those talons look sharp enough to have torn you to bits in seconds. With the cage now uncovered, you're face to face with one unhappy metallic navy blue Griffin. It makes the odd chuffing/growling noise you heard earlier once more, pacing in its cage.",
 		"exits": [{
 			"exit":"BACK",
 			"target":"ATRIUM"
@@ -266,7 +266,7 @@
 	}
 	,"SKYLIGHT":{
 		"name":"Attic Skylight",
-		"desc":"This appears to be the very tip of the top of the Tower. The Skylight could use a cleaning, but what you can see through it looks like beautiful, rolling grass plains outside the Tower.",
+		"desc":"This appears to be the very tip of the top of the Tower. The Skylight could use a cleaning, but what you can see through it looks like beautiful, rolling grass plains and partly cloudy skies outside the Tower.",
 		"exits": [{
 				"exit":"BACK",
 				"target":"ATTIC"
