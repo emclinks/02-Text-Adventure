@@ -89,7 +89,7 @@ def update(game,items,current,response):
         if i in items:
             for action in items[i]["actions"]:
                 if response == action + " " + i:
-                    print(item[i]["actions"][action])
+                    print(i[i]["actions"][action])
                     return current
 
     if response[0:3] == "GET":

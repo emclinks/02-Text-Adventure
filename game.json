@@ -163,6 +163,12 @@
 			},{
 				"exit":"SOUTH",
 				"target":"SPIDER"
+			},{
+				"exit":"UPSTAIRS",
+				"target":"LAND3"
+			},{
+				"exit":"DOWNSTAIRS",
+				"target":"LAND2"
 			}
 		]
 	}
@@ -239,6 +245,9 @@
 		"exits": [{
 				"exit":"UPSTAIRS",
 				"target":"ATTIC"
+			},{
+				"exit":"DOWNSTAIRS",
+				"target":"INTERSECT"
 			}
 		]
 	}
