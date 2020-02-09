@@ -36,7 +36,7 @@ def render(game,items,current):
     #display any items
     if "items" in c:
         for item in c["items"]:
-            if not check_inventory(item["item"]):
+            if not check_inventory(items["item"]):
                 print(item["desc"])
 
     #display item information
