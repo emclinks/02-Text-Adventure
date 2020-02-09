@@ -19,23 +19,23 @@
 				"target": "BEDCH"
 			},{
 				"exit": "HEAL",
-				"target": "BEDHEAL",
-				"condition": "POTION"
+				"target": "BEDHEAL"
 			},{
-				"exit": "HEAL",
-				"target": "BEDHEALFAM",
-				"condition": "POTIONFAV"
+				"exit": "HEALFAV",
+				"target": "BEDHEALFAM"
 			}
 		]
 	}
 	,"BEDHEAL":{
 		"name": "Wizard's Bed, Healed Mentor!",
 		"desc": "As you give the Wizard the potion, his strength flows back to him, and his crippling ailments fade away. He smiles and thanks you dearly for your hard work that saved his life!",
+		"condition": "POTION",
 		"exits":[]
 			}
 	,"BEDHEALFAM": {
 		"name": "Wizard's Bed, Healed Mentor!",
 		"desc": "As you give the Wizard the potion, his strength flows back to him, and his crippling ailments fade away. He smiles and thanks you dearly for your hard work that saved his life! He then sees the odd metal feather pinned to your cloak, scratching his wispy beard before exclaiming his adonishment at your success in not only saving him, but also befriending the most ornery resident of the Tower. Well Done!",
+		"condition": "POTIONFAV",
 		"exits":[]
 			}
 	,"LAND1": {
@@ -62,6 +62,9 @@
 			},{
 				"exit": "DOWNSTAIRS",
 				"target": "BASE2"
+			},{
+				"exit":"UPSTAIRS",
+				"target":"LAND1"
 			}
 		]
 	}
@@ -116,9 +119,6 @@
 			},{
 				"exit": "CHEST",
 				"target": "LCHEST"
-			},{
-				"exit": "USEKEY",
-				"target": "OCHEST"
 			}
 		]
 	}
@@ -128,28 +128,45 @@
 		"exits": [{
 				"exit": "BACK",
 				"target": "STUDY"
+			},{
+				"exit": "USEKEY",
+				"target": "OCHEST"
+			},{
+				"exit":"USEKEYFAV",
+				"target":"OCHESTFAV"
 			}
 		]
 	}
 	,"OCHEST": {
 		"name": "Unlocked Potion Chest",
 		"desc": "You use the key and successfully unlock the chest. Its filled to the brim with potions and rare alchemy materials. As tempted as you could be to shift through all of it, the potion you need to heal the wizard is actually convienently laying on top of everything in the chest.",
+		"condition":"KEY",
 		"exits": [{
 				"exit": "BACK",
-				"target": "STUDY",
-				"condition":"KEY"
+				"target": "STUDY"
 			}],
 			"items": [{
-				"name":"POTION",
-				"desc":"This is indeed the Potion you have been looking for to cure your mentor, the Wizard, of his magical sickness. It has a small, unreadable tag attached to the neck of the potion vial, and the liquid potion inside appears to be glowing purple in color.",
+				"item":"POTION",
+				"desc":"This is indeed the Potion you have been looking for to cure your mentor, the Wizard, of his magical sickness. It has a small, unreadable tag attached to the neck of the potion vial, and the liquid potion inside appears to be glowing purple in color [get POTION?].",
 				"take":"You take the Potion out of the Potion Chest, and carefully place it in your pouch. Best quickly head back to the Wizard now with his cure."
-			},{
-				"name":"POTIONFAV",
-				"desc":"This is indeed the Potion you have been looking for to cure your mentor, the Wizard, of his magical sickness. It has a small, unreadable tag attached to the neck of the potion vial, and the liquid potion inside appears to be glowing purple in color.",
-				"take":"You take the Potion out of the Potion Chest, and carefully place it in your pouch. Best quickly head back to the Wizard now with his cure.",
-				"condition":"FAVOR"
 			}
 		]
+	}
+	,"OCHESTFAV": {
+		"name": "Unlocked Potion Chest",
+		"desc": "You use the key and successfully unlock the chest. Its filled to the brim with potions and rare alchemy materials. As tempted as you could be to shift through all of it, the potion you need to heal the wizard is actually convienently laying on top of everything in the chest.",
+		"condition":"KEY + FAVOR",
+		"exits": [{
+				"exit": "BACK",
+				"target": "STUDY"
+				}],
+				"items": [{
+					"item":"POTIONFAV",
+					"desc":"This is indeed the Potion you have been looking for to cure your mentor, the Wizard, of his magical sickness. It has a small, unreadable tag attached to the neck of the potion vial, and the liquid potion inside appears to be glowing purple in color [get POTIONFAV?].",
+					"take":"You take the Potion out of the Potion Chest, and carefully place it in your pouch, the Griffin's Favor jingling with your movements. Best quickly head back to the Wizard now with his cure."
+				}
+			]
+
 	}
 	,"INTERSECT": {
 		"name":"Hallway Intersection",
@@ -216,8 +233,8 @@
 			"target":"ATRIUM"
 			}],
 			"items": [{
-				"name":"FAVOR",
-				"desc":"You attempt to give the Griffin the Odd Toy. It nearly swipes your arm but takes the toy, and makes a chirping sound that morphs into a purring chirp as it calms down and plays with the toy. The Griffin pushes a Metallic Feather Pin out of the cage.",
+				"item":"FAVOR",
+				"desc":"You attempt to give the Griffin the Odd Toy. It nearly swipes your arm but takes the toy, and makes a chirping sound that morphs into a purring chirp as it calms down and plays with the toy. The Griffin pushes a metallic feather pin as a Favor out of the cage.",
 				"take":"You pick up the Metallic Feather Pin, and proceed to pin it to your long cloak. You feel like you now have a bond with this odd, majestic creature now."
 			}]
 	}
@@ -262,11 +279,11 @@
 				"target":"SKYLIGHT"
 			}],
 				"items": [{
-					"name":"Odd_Toy",
+					"item":"Odd_Toy",
 					"desc":"You pick through the box of broken and random bin of toys and tinkering materials, and find an Odd Toy in relatively good shape.",
 					"take":"You find the Odd Toy kind of creepy somehow, but think it might be useful somehow. You pick it up and put it in your pouch."
 				},{
-					"name":"Key",
+					"item":"Key",
 					"desc":"You sift through the small box and find a bunch of papers, pens, and a small key.",
 					"take":"This looks like it's the key to the Potion Chest! You take it and put it into your pouch for safe-keeping."
 				}
