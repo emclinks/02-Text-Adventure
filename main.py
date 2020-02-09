@@ -30,29 +30,34 @@ def check_inventory(item):
 
 def render(game,items,current):
     c = game[current]
-    print("\n\nYou are currently in" + c["name"])
+    print("\n\nYou are currently in " + c["name"])
     print(c["desc"])
 
     #display any items
-    for item in c["items"]:
-        if not check_inventory(item["item"]):
-            print(item["desc"])
+    if "items" in c:
+        for item in c["items"]:
+            if not check_inventory(item["item"]):
+                print(item["desc"])
 
     #display item information
     for i in inventory:
         if i in items:
-            if current in items[i]("exits"):
-                print(items[i]("exits")[current])
+            if current in items[i]["exits"]:
+                print(items[i]["exits"][current])
 
 
     print("\nAvalible exits: ")
     for e in c["exits"]:
-        print(e["exit"].lower())
+        if "condition" in e:
+            if e["condition"] in inventory:
+                print(e["exit"].lower())
+        else:
+            print(e["exit"].lower())
 
 
 
 def get_input():
-    response = input("\nWhat do you want to do now?")
+    response = input("\nWhat do you want to do now? ")
     response = response.upper().strip()
     return response
 
@@ -68,31 +73,32 @@ def update(game,items,current,response):
 
     c = game[current]
     for e in c["exits"]:
-        if response == e["exit"]:
+        if "condition" in e:
+            if e["condition"] in inventory and response == e["exit"]:
+                return e["target"]
+        elif response == e["exit"]:
             return e["target"]
-    return current
+
+    for i in c["items"]:
+        if response == "GET " + i["item"] and not check_inventory(i["item"]):
+            print(i["take"])
+            inventory.append(i["item"])
+            return current
+
+    for i in inventory:
+        if i in items:
+            for action in items[i]["actions"]:
+                if response == action + " " + i:
+                    print(item[i]["actions"][action])
+                    return current
 
     if response[0:3] == "GET":
-        print("You can't that.")
+        print("You can't take that.")
     elif response in ("NORTH","WEST","SOUTH","SW","SE","NW","NE"):
         print("You can't go there.")
     else:
         print("I don't understand what you want to do.")
-
-
-for i in c["items"]:
-    if response == "GET" + i["item"] and not check_inventory(i["item"]):
-        print(["TAKE"])
-        inventory.append(i["item"])
-        return current
-
-
-for i in inventory:
-    if i in items:
-        for action in items[i]["actions"]:
-            if response == action + " " + i:
-                print(item[i]["actions"][action])
-                return current
+    return current
     
 
 
@@ -106,12 +112,12 @@ for i in inventory:
 
 # The main function for the game
 def main():
-        current = 'BEDCH'  # The starting location
-        end_game = ['BEDHEAL','BEDHEALFAV']  # Any of the end-game locations
+    current = 'BEDCH'  # The starting location
+    end_game = ['BEDHEAL','BEDHEALFAV']  # Any of the end-game locations
 
-        (game,items) = load_files()
+    (game,items) = load_files()
 
-    While True:
+    while True:
         render(game,items,current)
         response = get_input()
 
